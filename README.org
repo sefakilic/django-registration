@@ -8,5 +8,5 @@ other dependencies.
 For installation instructions, see the file "INSTALL" in this directory. Full
 documentation is available online https://django-registration.readthedocs.org/
 
-Different from the original one, this repository uses first and last names of the
-user for registration.
+Different from the original one, this application asks for first and last names of
+the user, in addition to the username, email and password.
