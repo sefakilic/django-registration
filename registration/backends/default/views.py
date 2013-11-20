@@ -72,11 +72,13 @@ class RegistrationView(BaseRegistrationView):
 
         """
         username, email, password = cleaned_data['username'], cleaned_data['email'], cleaned_data['password1']
+        first_name, last_name = cleaned_data['first_name'], cleaned_data['last_name']
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
             site = RequestSite(request)
         new_user = RegistrationProfile.objects.create_inactive_user(username, email,
+                                                                    first_name, last_name,
                                                                     password, site)
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,
